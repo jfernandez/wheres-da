@@ -69,6 +69,10 @@ function OnGUI() {
 	
 	//GUI.color = (1.0, 1.0, 1.0, tensionPoints/60);
 	GUI.DrawTexture(Rect(400,r.yMax-120,200,200), tantrometer);
+	var dadTartan = Resources.Load("Tartans-DAD");//prompt screen!
+	GUI.DrawTexture(Rect(r.xMin,r.yMax-100,100,100), dadTartan);
+
+	
 	GUI.color = Color.black;
 	GUI.color.a = tensionPoints/19;
 	
