@@ -8,53 +8,47 @@ private var textures = ["CookieOnTheGrass", "Reunion", "CookieOnTheGrass"];
 private var x = 0;
 
 function Start () {
-	NarrativeTile1 = Resources.Load("Reunion");
-	clicked = false;
+	NarrativeTile1 = Resources.Load("Reunion");	
+	scrollIt();
 }
 
 function Update () {
-	if(Input.GetMouseButton(0)){
-	  if(clicked === false){
-	  	clicked = true;
-	  	//Debug.Log("update is " + clicked);
-	  	scrollIt();
-	  }	
-	}
+	
 }
 
 function scrollIt() {
-	if(clicked === true){
+	//if(clicked === true){
 		//Debug.Log("Trying to scroll");
 		renderer.material.SetTextureScale("_MainTex", Vector2(1, .5));
 	    renderer.material.mainTexture = NarrativeTile1;
-	    var scrollSpeed = 0.1;
+	    
 		
 		//var offset = Time.time * scrollSpeed;	
 		var offset = -0.01;
-		while(offset < 0.562){//specific reunion offset
+		while(offset < 0.5){//specific reunion offset
 			renderer.material.mainTextureOffset = Vector2 (0,offset);
 			offset = offset + 0.001;
 			//Debug.Log(offset);
-			yield WaitForSeconds(0.001);
+			//yield WaitForSeconds(0.001);
 			
-			if(offset >= 0.562){
+			if(offset >= 0.49){
 		
 				//Fade? 
 				yield WaitForSeconds(2);
 				changeTexture();
 			} 
 		}	
-	}
+	//}
 }
 
 function changeTexture() {
-	NarrativeTile1 = Resources.Load(textures[x]);
-	Debug.Log(textures[x]);
-	if(x >= textures.Length){
-	  x = 0;
-	}
-	else{
-	  x++;
-	};
+	
+	
+	NarrativeTile1 = Resources.Load("FinalCredits");
 	scrollIt();
+	renderer.material.mainTextureOffset = Vector2 (0,0.0);
+	renderer.material.mainTexture = NarrativeTile1;
+	//scrollIt();
+	renderer.material.SetTextureScale("_MainTex", Vector2(1, 1));
+	
 }
