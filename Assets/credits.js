@@ -4,7 +4,7 @@ private var scrollSpeed : float = .5;
 private var offset : float;
 private var rotate : float;
 private var clicked : boolean;
-private var textures = ["CookieOnTheGrass", "Reunion", "CookieOnTheGrass"];
+private var textures = ["Reunion", "EndCredits"];
 private var x = 0;
 
 function Start () {
@@ -42,9 +42,14 @@ function scrollIt() {
 }
 
 function changeTexture() {
-	NarrativeTile1 = Resources.Load("EndCredits");
-	renderer.material.mainTexture = NarrativeTile1;
-	renderer.material.SetTextureScale("_MainTex", Vector2(1, 1));
-	renderer.material.SetTextureOffset("_MainTex", Vector2(0,0));
+	NarrativeTile1 = Resources.Load(textures[x]);
+	Debug.Log(textures[x]);
+	if(x >= textures.Length){
+	  x = 0;
+	}
+	else{
+	  x++;
+	};
+	scrollIt();
 	
 }
