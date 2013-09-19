@@ -11,6 +11,24 @@ private var prompt : Texture;
 function Start () {
   timer = timerInterval;
   count = 0;
+  
+  people = GameObject.FindGameObjectsWithTag("NotDad");
+  for (var person : GameObject in people) {
+    for (var child : Renderer in person.GetComponentsInChildren(typeof(Renderer))) {
+       if(child.name == "Skirt") {
+       	 child.renderer.material.mainTexture = RandomTaranMaterial();
+       }
+    }
+  }
+}
+
+function RandomTaranMaterial() {
+  return Resources.Load(RandomTartanName());
+}
+function RandomTartanName() {
+  var name = "Tartans-";
+  var number = Random.Range(1, 12);
+  return name + number;
 }
 
 function Update () {
