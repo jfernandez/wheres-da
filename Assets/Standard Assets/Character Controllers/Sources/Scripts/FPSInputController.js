@@ -35,8 +35,8 @@ function Update () {
 		if(Physics.Raycast(ray, hit, 3)) {
 			Debug.Log(hit.collider.gameObject.name);
 			if(hit.collider.gameObject.name == "dadHitbox"){
-				//Destroy(hit.collider.gameObject);
 				Debug.Log("You found your da!");
+        Application.LoadLevel("ExitScene");
 			}
 		}
 	}
