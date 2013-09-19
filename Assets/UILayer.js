@@ -68,7 +68,7 @@ function OnGUI() {
 	count++;
 	
 	//GUI.color = (1.0, 1.0, 1.0, tensionPoints/60);
-	GUI.DrawTexture(Rect(400,r.yMax-100,200,200), tantrometer);
+	GUI.DrawTexture(Rect(400,r.yMax-120,200,200), tantrometer);
 	GUI.color = Color.black;
 	GUI.color.a = tensionPoints/19;
 	
