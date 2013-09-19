@@ -1,6 +1,4 @@
-﻿var TantrometerNeedle : Texture;
-var TantrometerFaces : Texture;
-var TantrumOverlay : Texture;
+﻿var TantrumOverlay : Texture;
 private var tensionPoints : float = 0;
 private var tensionStep : float  = 1;
 private var maxTension : float = 19;
@@ -8,6 +6,7 @@ private var timerInterval : float = 3.15;
 private var timer : float;
 private var count : int;
 private var tantrometer : Texture;
+private var prompt : Texture;
 
 function Start () {
   timer = timerInterval;
@@ -26,20 +25,11 @@ function Update () {
   
 
   if(tensionPoints >= maxTension) {
-    Debug.Log("Game Over!");
+     Application.LoadLevel("ExitScene");
   }
 }
 
 function OnGUI() {
-	if(!TantrometerNeedle){
-		Debug.LogError("Assign a Texture in the inspector.");
-		return;
-	}
-	
-	if(!TantrometerFaces){
-		Debug.LogError("Assign a Texture in the inspector.");
-		return;
-	}
 	
 	var r : Rect = camera.pixelRect;
 	
@@ -53,10 +43,14 @@ function OnGUI() {
 	
 	var countLabel = tensionPoints.ToString();
 	tantrometer = Resources.Load(countLabel);
+	prompt = Resources.Load("FullScreenResources");
+	if(tensionPoints < 2){
+		GUI.DrawTexture(Rect(300, 100, 400, 400), prompt);
+	}
 	count++;
 	
 	//GUI.color = (1.0, 1.0, 1.0, tensionPoints/60);
-	GUI.DrawTexture(Rect(r.xMax/2,r.yMax-100,200,200), tantrometer);
+	GUI.DrawTexture(Rect(400,r.yMax-100,200,200), tantrometer);
 	GUI.color = Color.black;
 	GUI.color.a = tensionPoints/19;
 	
