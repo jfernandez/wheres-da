@@ -29,7 +29,7 @@ function scrollIt() {
 			renderer.material.mainTextureOffset = Vector2 (0,offset);
 			offset = offset + 0.001;
 			//Debug.Log(offset);
-			//yield WaitForSeconds(0.001);
+			yield WaitForSeconds(0.001);
 			
 			if(offset >= 0.49){
 		
@@ -42,13 +42,9 @@ function scrollIt() {
 }
 
 function changeTexture() {
-	
-	
-	NarrativeTile1 = Resources.Load("FinalCredits");
-	scrollIt();
-	renderer.material.mainTextureOffset = Vector2 (0,0.0);
+	NarrativeTile1 = Resources.Load("EndCredits");
 	renderer.material.mainTexture = NarrativeTile1;
-	//scrollIt();
 	renderer.material.SetTextureScale("_MainTex", Vector2(1, 1));
+	renderer.material.SetTextureOffset("_MainTex", Vector2(0,0));
 	
 }
