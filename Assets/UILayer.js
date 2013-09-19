@@ -43,8 +43,8 @@ function OnGUI() {
 	
 	var r : Rect = camera.pixelRect;
 	
-	GUI.color = Color.red;
-	GUI.color.a = tensionPoints;
+	GUI.color = Color.black;
+	GUI.color.a = tensionPoints/19;
 	GUI.DrawTexture(Rect(0,0, r.xMax,r.yMax), TantrumOverlay); 	
 	
 	//start tantrometer logic
@@ -56,9 +56,9 @@ function OnGUI() {
 	count++;
 	
 	//GUI.color = (1.0, 1.0, 1.0, tensionPoints/60);
-	GUI.DrawTexture(Rect(r.xMax/2,r.yMax-120,200,200), tantrometer);
-	GUI.color = Color.red;
-	GUI.color.a = tensionPoints/60;
+	GUI.DrawTexture(Rect(r.xMax/2,r.yMax-100,200,200), tantrometer);
+	GUI.color = Color.black;
+	GUI.color.a = tensionPoints/19;
 	
 	//Debug.Log(r.yMin + "Is yMin");
 	
