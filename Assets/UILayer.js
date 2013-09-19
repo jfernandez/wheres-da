@@ -61,9 +61,9 @@ function OnGUI() {
 	
 	var countLabel = tensionPoints.ToString();
 	tantrometer = Resources.Load(countLabel);
-	prompt = Resources.Load("FullScreenResources");
+	prompt = Resources.Load("FindDaPrompt");//prompt screen! 
 	if(tensionPoints < 2){
-		GUI.DrawTexture(Rect(300, 100, 400, 400), prompt);
+		GUI.DrawTexture(Rect(100, 100, 800, 800), prompt);
 	}
 	count++;
 	
