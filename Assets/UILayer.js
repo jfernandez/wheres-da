@@ -3,12 +3,15 @@ var TantrometerFaces : Texture;
 var TantrumOverlay : Texture;
 private var tensionPoints : float = 0;
 private var tensionStep : float  = 1;
-private var maxTension : float = 600;
-private var timerInterval : float = 0.1;
+private var maxTension : float = 19;
+private var timerInterval : float = 3.15;
 private var timer : float;
+private var count : int;
+private var tantrometer : Texture;
 
 function Start () {
   timer = timerInterval;
+  count = 0;
 }
 
 function Update () {
@@ -41,15 +44,20 @@ function OnGUI() {
 	var r : Rect = camera.pixelRect;
 	
 	GUI.color = Color.red;
-	GUI.color.a = tensionPoints/600;
-	Debug.Log(GUI.color.a);
+	GUI.color.a = tensionPoints;
 	GUI.DrawTexture(Rect(0,0, r.xMax,r.yMax), TantrumOverlay); 	
 	
+	//start tantrometer logic
 	GUI.color = Color.white;
 	GUI.color.a = 1;
+	
+	var countLabel = tensionPoints.ToString();
+	tantrometer = Resources.Load(countLabel);
+	count++;
+	
 	//GUI.color = (1.0, 1.0, 1.0, tensionPoints/60);
-	GUI.DrawTexture(Rect(r.xMax/2,r.yMax-200,200,200), TantrometerFaces);
-	GUI.DrawTexture(Rect(r.xMax/2,r.yMax-200,200,200), TantrometerNeedle);
+	GUI.DrawTexture(Rect(r.xMax/2,r.yMax-200,200,200), tantrometer);
+	GUI.DrawTexture(Rect(r.xMax/2,r.yMax-200,200,200), tantrometer);
 	GUI.color = Color.red;
 	GUI.color.a = tensionPoints/60;
 	
