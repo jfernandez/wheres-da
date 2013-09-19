@@ -25,12 +25,3 @@ function Update () {
     Debug.Log("Game Over!");
   }
 }
-
-function OnGUI () {
-	var r : Rect = camera.pixelRect;
-		print ("Camera displays from " + r.yMin + " to " + r.yMax + " pixel");
-		
-	if (GUI.Button (Rect (r.xMax/2-200, r.yMax-400 ,400,200), "Tantrometer")) {
-		print ("You clicked the button!");
-	}
-}
