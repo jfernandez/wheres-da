@@ -37,7 +37,7 @@ function Update () {
   if(timer < 0) {
     tensionPoints += tensionStep;
     timer = timerInterval;
-    Debug.Log(tensionPoints);       
+    //Debug.Log(tensionPoints);       
   }
 
   

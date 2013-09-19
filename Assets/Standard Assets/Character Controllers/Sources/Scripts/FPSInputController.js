@@ -34,7 +34,7 @@ function Update () {
 		var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		if(Physics.Raycast(ray, hit, 3)) {
 			Debug.Log(hit.collider.gameObject.name);
-			if(hit.collider.gameObject.name == "dadHitbox"){
+			if(hit.collider.gameObject.name == "IsDad(Clone)"){
 				Debug.Log("You found your da!");
         Application.LoadLevel("ExitScene");
 			}

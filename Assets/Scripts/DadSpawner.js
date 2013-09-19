@@ -8,9 +8,7 @@ private var people : GameObject[];
 private var dad : GameObject;
 
 function Start () {
-  while(dadCollision()) {
-    SpawnDad();
-  }
+  SpawnDad();
 }
 
 function SpawnDad() {
