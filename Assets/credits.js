@@ -6,11 +6,14 @@ private var rotate : float;
 private var clicked : boolean;
 private var textures = ["Reunion", "EndCredits"];
 private var x : int;
+private var switched : boolean;
 
 function Start () {
 	NarrativeTile1 = Resources.Load("Reunion");	
 	x = 0;
+	switched = false;
 	scrollIt();
+	
 }
 
 function Update () {
@@ -32,7 +35,7 @@ function scrollIt() {
 			//Debug.Log(offset);
 			yield WaitForSeconds(0.001);
 			
-			if(offset >= 0.49){
+			if(offset >= 0.49 && switched == false){
 		
 				//Fade? 
 				yield WaitForSeconds(2);
@@ -43,6 +46,8 @@ function scrollIt() {
 }
 
 function changeTexture() {
+	Debug.Log("ChangingTexture");
+	switched = true;
 	NarrativeTile1 = Resources.Load("EndCredits");
 	renderer.material.mainTexture = NarrativeTile1;
 	//renderer.material.SetTextureScale("_MainTex", Vector2(1, 1));
